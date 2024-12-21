@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import navLogo from '../../../public/hotel-logo.avif'
 
 const Navbar = props => {
 
@@ -11,7 +12,7 @@ const Navbar = props => {
     </>
 
     return (
-        <div className="navbar bg-base-300 px-10">
+        <div className="navbar bg-[#FAF5E8] px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -36,7 +37,11 @@ const Navbar = props => {
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl font-bold">Hotel Ali Baba</a>
+                    <a className="btn btn-ghost">
+                        <div className='flex items-center gap-2'>
+                            <img src={navLogo} className='w-8 h-8 rounded-full' alt="" />
+                            <p className=' md:text-xl font-bold'>Hotel Ali Baba</p>
+                        </div></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
