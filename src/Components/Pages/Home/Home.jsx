@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
+import Banner from '../Banner/Banner';
 
 const Home = props => {
     return (
         <div>
-            this is a home page
+            <header>
+                <Banner></Banner>
+            </header>
         </div>
     );
 };
