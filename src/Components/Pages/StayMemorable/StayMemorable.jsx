@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { FaShuttleVan } from 'react-icons/fa';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 
 const StayMemorable = props => {
     const [cards, setCards] = useState([]);
@@ -9,7 +10,11 @@ const StayMemorable = props => {
         fetch('./staymemorable.json')
             .then(res => res.json())
             .then(data => setCards(data))
-            .catch(error => console.error("Error fetching data:", error));
+
+        Aos.init({
+            duration: 1000,
+            once: true,    
+        });
     }, []);
 
     return (
@@ -19,14 +24,17 @@ const StayMemorable = props => {
                 Enjoy comfort, luxury, and personalized service at our hotel. Let us make your stay truly unforgettable.
             </p>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-10'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 px-5'>
                 {cards.map((card, index) => (
-                    <div key={index} className="card bg-base-100  w-80 shadow-xl mx-auto">
+                    <div 
+                     data-aos="fade-up"
+                    key={index} 
+                    className="card bg-base-100 lg:w-80 shadow-xl mx-auto ">
                         <figure className="px-10 pt-10">
                             <img
                                 src={card.image}
                                 alt="Shoes"
-                                className="rounded-xl w-full h-[150px] bg-cover" />
+                                className="rounded-xl w-full h-[150px] bg-cover transition-transform duration-700 ease-in-out hover:scale-110" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">{card.feature}</h2>
