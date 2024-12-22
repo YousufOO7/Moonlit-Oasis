@@ -53,10 +53,16 @@ const Navbar = props => {
             </div>
             <div className="navbar-end">
                 {
+                    user && user?.email ? <div className='flex items-center gap-2'>
+                        <p>{user?.displayName}</p>
+                        <img className='h-[40px] rounded-full hidden md:block mr-2' src={user?.photoURL} alt="image" />
+                    </div> : ''
+                }
+                {
                     user && user?.email ? <Link to="/"><button onClick={Logout} className="btn btn-error text-white">Log-Out</button></Link> : <Link to="/signIn" className="btn  bg-[#7F673A] text-white">Login</Link>
 
                 }
-                
+
             </div>
         </div>
     );
