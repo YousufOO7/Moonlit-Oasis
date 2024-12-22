@@ -5,6 +5,7 @@ import  './Location.css'
 const LocationOfHotel = props => {
     return (
        <div >
+        <h1 className='text-center text-3xl font-bold my-5 underline'>Location Of Our Hotels</h1>
          <MapContainer center={[21.4272, 92.0058]} zoom={13} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
