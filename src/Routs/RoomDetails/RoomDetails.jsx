@@ -5,7 +5,6 @@ import BookRoomModal from '../BookRoomModal/BookRoomModal';
 
 const RoomDetails = () => {
   const rooms = useLoaderData();
-  console.log(rooms);
 
   const { image, description, title, price, features } = rooms;
 
@@ -71,7 +70,9 @@ const RoomDetails = () => {
           </div>
         </div>
       </div>
-      <BookRoomModal></BookRoomModal>
+      <BookRoomModal
+      rooms={rooms}
+      ></BookRoomModal>
     </div>
   );
 };

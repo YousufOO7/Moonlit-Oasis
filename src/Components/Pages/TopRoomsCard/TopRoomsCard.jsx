@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const TopRoomsCard = ({ room }) => {
     const { image, description, price, title, features, _id} = room;
-    console.log(room)
     return (
         <div>
             <div className="card card-compact bg-base-100  shadow-xl">
