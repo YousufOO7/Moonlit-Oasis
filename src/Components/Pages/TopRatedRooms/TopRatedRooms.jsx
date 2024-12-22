@@ -9,7 +9,7 @@ const TopRatedRooms = props => {
     const axiosSecure = AxiosSecure();
 
     useEffect(() => {
-        axiosSecure.get('/hotels')
+        axiosSecure.get('/rooms')
         .then(res => setRooms(res.data.slice(0, 6)))
 
     }, [])

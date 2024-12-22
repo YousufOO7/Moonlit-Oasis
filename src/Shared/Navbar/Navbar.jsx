@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import navLogo from '../../../public/hotel-logo.avif'
 
 const Navbar = props => {
 
 
     const Links = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/">Rooms</Link></li>
-        <li><Link to="/">My Bookings</Link></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/rooms">Rooms</NavLink></li>
+        <li><NavLink to="">My Bookings</NavLink></li>
     </>
 
     return (
