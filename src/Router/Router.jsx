@@ -4,6 +4,7 @@ import {
 import MainLayOut from "../Components/MainLayout/MainLayOut";
 import Home from "../Components/Pages/Home/Home";
 import Rooms from "../Routs/Rooms/Rooms";
+import RoomDetails from "../Routs/RoomDetails/RoomDetails";
 
   const router = createBrowserRouter([
     {
@@ -18,6 +19,11 @@ import Rooms from "../Routs/Rooms/Rooms";
         {
           path: '/rooms',
           element: <Rooms></Rooms>
+        },
+        {
+          path: '/room/:id',
+          element: <RoomDetails></RoomDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
         }
       ]
     },
