@@ -9,7 +9,7 @@ const Navbar = props => {
     const Links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/rooms">Rooms</NavLink></li>
-        <li><NavLink to="">My Bookings</NavLink></li>
+        <li><NavLink to="/myBooking">My Bookings</NavLink></li>
     </>
 
     return (
