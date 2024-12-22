@@ -7,6 +7,7 @@ import Rooms from "../Routs/Rooms/Rooms";
 import RoomDetails from "../Routs/RoomDetails/RoomDetails";
 import SignIn from "../Components/Pages/SignIn/SignIn";
 import Register from "../Components/Pages/Register/Register";
+import ForgotPassword from "../Provider/ForgotPassword";
 
   const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ import Register from "../Components/Pages/Register/Register";
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/forgotPassword',
+          element: <ForgotPassword></ForgotPassword>
         }
       ]
     },
