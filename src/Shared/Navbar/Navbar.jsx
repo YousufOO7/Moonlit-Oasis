@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
 import navLogo from '../../../public/hotel-logo.avif'
+import UseAuth from '../../Hooks/UseAuth';
 
 const Navbar = props => {
-
+    const { user, Logout } = UseAuth();
 
     const Links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -37,11 +38,11 @@ const Navbar = props => {
                         }
                     </ul>
                 </div>
-                    <a className="btn btn-ghost">
-                        <div className='flex items-center gap-2'>
-                            <img src={navLogo} className='w-8 h-8 rounded-full' alt="" />
-                            <p className=' md:text-xl font-bold'>Hotel Ali Baba</p>
-                        </div></a>
+                <a className="btn btn-ghost">
+                    <div className='flex items-center gap-2'>
+                        <img src={navLogo} className='w-8 h-8 rounded-full' alt="" />
+                        <p className=' md:text-xl font-bold'>Hotel Ali Baba</p>
+                    </div></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -51,7 +52,11 @@ const Navbar = props => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Login</a>
+                {
+                    user && user?.email ? <Link to="/"><button onClick={Logout} className="btn btn-error text-white">Log-Out</button></Link> : <Link to="/signIn" className="btn  bg-[#7F673A] text-white">Login</Link>
+
+                }
+                
             </div>
         </div>
     );

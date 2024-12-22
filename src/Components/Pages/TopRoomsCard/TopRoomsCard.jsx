@@ -17,7 +17,7 @@ const TopRoomsCard = ({ room }) => {
                     <h2 className="card-title text-2xl">{title}</h2>
                     <p>{description.slice(0, 90)}...</p>
                     <p><b>Price:</b> {price}</p>
-                    <p className="font-semibold mt-3 text-xl">Features:</p>
+                    <p className="font-semibold mt-3 ">Features:</p>
                     <div className='flex gap-2 flex-wrap'>
                         {
                             features.map((skill, idx) => <p
