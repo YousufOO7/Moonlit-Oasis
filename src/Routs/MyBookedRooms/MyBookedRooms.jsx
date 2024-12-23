@@ -69,7 +69,7 @@ const MyBookedRooms = () => {
     };
 
 
-    const handleOpenModal = (room) => {
+    const handleUpdateDateModal = (room) => {
         setSelectedRoom(room);
         document.getElementById('my_modal_1').showModal(); 
     };
@@ -144,7 +144,7 @@ const MyBookedRooms = () => {
                                                         </button>
 
                                                         <button
-                                                            onClick={() => handleOpenModal(room)}
+                                                            onClick={() => handleUpdateDateModal(room)}
                                                             className="text-gray-500 hover:text-yellow-500"
                                                         >
                                                             <div className="flex gap-1">

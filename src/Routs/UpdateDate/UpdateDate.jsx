@@ -45,6 +45,7 @@ const UpdateDate = ({ selectedRoom }) => {
                             className="border p-2 rounded-md"
                             selected={startDate}
                             onChange={date => setStartDate(date)}
+                            minDate={new Date()}
                         />
                     </div>
                     <div className="modal-action">
@@ -54,7 +55,7 @@ const UpdateDate = ({ selectedRoom }) => {
                         >
                             Confirm Update
                         </button>
-                        <button onClick={handleCancelUpdate} className="btn">
+                        <button onClick={handleCancelUpdate} className="btn  bg-[#7F673A] text-white">
                             Cancel
                         </button>
                     </div>
