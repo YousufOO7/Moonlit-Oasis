@@ -1,33 +1,64 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import { FaStar } from 'react-icons/fa';
 
 const TopRoomsCard = ({ room }) => {
-    const { image, description, price, title, features, _id} = room;
+    const { image, description, price, title, features, _id, reviews } = room;
+
+    // Calculate the average rating
+    const averageRating = reviews?.length
+        ? (reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(1)
+        : 0;
+
     return (
         <div>
-            <div className="card card-compact bg-base-100  shadow-xl">
+            <div className="card card-compact bg-base-100 shadow-xl">
                 <figure>
                     <img
-                        className='w-full bg-cover h-[200px]'
+                        className="w-full bg-cover h-[200px]"
                         src={image}
-                        alt="rooms" />
+                        alt="rooms"
+                    />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title text-2xl">{title}</h2>
                     <p>{description.slice(0, 90)}...</p>
                     <p><b>Price:</b> {price}</p>
-                    <p className="font-semibold mt-3 ">Features:</p>
-                    <div className='flex gap-2 flex-wrap'>
-                        {
-                            features.map((skill, idx) => <p
-                                key={idx}
-                                className='border rounded-md text-center px-2 hover:text-white hover:bg-blue-400'
-                            >{skill}</p>)
-                        }
+
+                    {/* Rating */}
+                    <div className="flex items-center mt-2">
+                        <div className="flex gap-1">
+                            {/* Display rating stars */}
+                            {[1, 2, 3, 4, 5].map((star) => (
+                                <FaStar
+                                    key={star}
+                                    className={`${
+                                        star <= averageRating ? 'text-yellow-500' : 'text-gray-300'
+                                    }`}
+                                />
+                            ))}
+                        </div>
+                        <span className="ml-2 text-gray-700">{averageRating} / 5</span>
                     </div>
+
+                    {/* Features */}
+                    <p className="font-semibold mt-3">Features:</p>
+                    <div className="flex gap-2 flex-wrap">
+                        {features.map((feature, idx) => (
+                            <p
+                                key={idx}
+                                className="border rounded-md text-center px-2 hover:text-white hover:bg-blue-400"
+                            >
+                                {feature}
+                            </p>
+                        ))}
+                    </div>
+
+                    {/* Book Now Button */}
                     <div className="mt-3">
-                        <Link to={`/room/${_id}`}><button className="btn w-full bg-[#7F673A] text-white">Book Now</button></Link>
+                        <Link to={`/room/${_id}`}>
+                            <button className="btn w-full bg-[#7F673A] text-white">Book Now</button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -36,7 +67,7 @@ const TopRoomsCard = ({ room }) => {
 };
 
 TopRoomsCard.propTypes = {
-
+    room: PropTypes.object.isRequired,
 };
 
 export default TopRoomsCard;

@@ -67,7 +67,7 @@ const RoomDetails = () => {
               <div>
 
                 {/* Show reviews */}
-                {reviews.length > 0 ? (
+                {reviews?.length > 0 ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5">
                     {reviews.map((review, index) => (
                       <div key={index} className="card p-4 shadow-lg rounded-md bg-white">
