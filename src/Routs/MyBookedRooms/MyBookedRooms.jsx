@@ -19,7 +19,24 @@ const MyBookedRooms = () => {
     }, [user?.email]);
 
     // delete room
-    const handleDelete = async (id) => {
+    const handleDelete = async (room) => {
+        const bookingDate = new Date(room.bookingDate);
+        const cancellationDeadline = new Date(bookingDate);
+        cancellationDeadline.setDate(bookingDate.getDate() - 1); 
+
+        const today = new Date();
+        if (today > cancellationDeadline) {
+            Swal.fire({
+                title: "Cancellation Not Allowed",
+                text: `You can cancel your booking only up to ${format(
+                    cancellationDeadline,
+                    'P'
+                )}.`,
+                icon: "error",
+            });
+            return;
+        }
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -27,22 +44,22 @@ const MyBookedRooms = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: "Yes, cancel it!",
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axiosSecure.delete(`/room/${id}`);
-                    setRooms((prevRooms) => prevRooms.filter((room) => room._id !== id));
+                    await axiosSecure.delete(`/room/${room._id}`);
+                    setRooms((prevRooms) => prevRooms.filter((r) => r._id !== room._id));
                     Swal.fire({
-                        title: "Deleted!",
-                        text: "Your room has been deleted.",
+                        title: "Cancelled!",
+                        text: "Your booking has been cancelled.",
                         icon: "success",
                     });
                 } catch (error) {
-                    console.error("Failed to delete room:", error);
+                    console.error("Failed to cancel booking:", error);
                     Swal.fire({
                         title: "Error!",
-                        text: "Failed to delete the room. Please try again later.",
+                        text: "Failed to cancel the booking. Please try again later.",
                         icon: "error",
                     });
                 }
@@ -50,9 +67,10 @@ const MyBookedRooms = () => {
         });
     };
 
+
     const handleOpenModal = (room) => {
-        setSelectedRoom(room); 
-        document.getElementById('my_modal_1').showModal(); // Open the modal
+        setSelectedRoom(room);
+        document.getElementById('my_modal_1').showModal(); 
     };
 
     return (
@@ -110,7 +128,7 @@ const MyBookedRooms = () => {
                                                 <td className="px-4 py-4 text-sm">
                                                     <div className="flex items-center gap-x-6">
                                                         <button
-                                                            onClick={() => handleDelete(room._id)}
+                                                            onClick={() => handleDelete(room)}
                                                             className="text-gray-500 hover:text-red-500"
                                                         >
                                                             <div className="flex gap-1">
@@ -118,6 +136,7 @@ const MyBookedRooms = () => {
                                                                 <MdDeleteForever className="text-2xl" />
                                                             </div>
                                                         </button>
+
                                                         <button
                                                             onClick={() => handleOpenModal(room)}
                                                             className="text-gray-500 hover:text-yellow-500"
