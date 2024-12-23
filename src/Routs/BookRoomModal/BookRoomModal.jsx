@@ -17,7 +17,7 @@ const BookRoomModal = ({ rooms }) => {
             const bookedRoom = {
                 ...rooms,
                 bookingDate: startDate,
-                user: user?.email
+                user: user?.email 
             }
             const {data} = await axiosSecure.post('/booked-room', bookedRoom);
             console.log('booking successful', data)
@@ -50,6 +50,7 @@ const BookRoomModal = ({ rooms }) => {
                             className='border p-2 rounded-md'
                             selected={startDate}
                             onChange={date => setStartDate(date)}
+                            minDate={new Date()}
                         ></DatePicker>
                     </div>
                     <div className=" mt-3 ">

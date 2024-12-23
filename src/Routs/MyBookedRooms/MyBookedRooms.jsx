@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import UpdateDate from '../UpdateDate/UpdateDate';
 import UseAuth from '../../Hooks/UseAuth';
 import AxiosSecure from '../../Hooks/AxiosSecure';
+import ReviewModal from '../ReviewModal/ReviewModal';
 
 const MyBookedRooms = () => {
     const { user } = UseAuth();
@@ -73,6 +74,11 @@ const MyBookedRooms = () => {
         document.getElementById('my_modal_1').showModal(); 
     };
 
+    const handleReviewModal = (room) => {
+        setSelectedRoom(room);
+        document.getElementById('my_modal_5').showModal();
+    }
+    
     return (
         <div>
             <section className="container px-4 mx-auto pt-12">
@@ -149,7 +155,9 @@ const MyBookedRooms = () => {
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button className="btn">Review</button>
+                                                    <button 
+                                                     onClick={() => handleReviewModal(room)}
+                                                    className="btn">Review</button>
                                                 </td>
                                             </tr>
                                         ))}
@@ -163,6 +171,8 @@ const MyBookedRooms = () => {
 
             {/* Pass selected room to UpdateDate modal */}
             <UpdateDate selectedRoom={selectedRoom} ></UpdateDate>
+
+            <ReviewModal selectedRoom={selectedRoom}></ReviewModal>
         </div>
     );
 };
