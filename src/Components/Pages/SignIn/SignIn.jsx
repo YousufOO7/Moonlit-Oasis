@@ -27,7 +27,7 @@ const SignIn = () => {
                 const user = result.user;
                 setUser(user);
                 toast.success(`Welcome ${user?.displayName}`);
-                navigate(location?.state?.from || '/dashboard');
+                navigate(location?.state?.from || '/');
             })
             .catch((err) => {
                 setError({ login: err.message });
