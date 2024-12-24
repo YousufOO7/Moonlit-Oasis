@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 import AxiosSecure from '../../Hooks/AxiosSecure';
+import { toast } from 'react-toastify';
 
 const UpdateDate = ({ selectedRoom }) => {
     const [startDate, setStartDate] = useState(new Date());
@@ -12,8 +13,8 @@ const UpdateDate = ({ selectedRoom }) => {
     const handleConfirmUpdate = async id => {
         try {
             const updateDate = { bookingDate: startDate };
-            const { data } = await axiosSecure.put(`/dateUpdate/${id}`, updateDate);
-            console.log('Booking updated successfully:', data);
+            await axiosSecure.put(`/dateUpdate/${id}`, updateDate);
+            toast.success('Booking updated successfully!!');
             document.getElementById('my_modal_1').close();
         } catch (error) {
             console.error('Failed to update booking:', error);

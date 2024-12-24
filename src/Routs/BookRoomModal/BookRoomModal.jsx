@@ -4,23 +4,27 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AxiosSecure from '../../Hooks/AxiosSecure';
 import UseAuth from '../../Hooks/UseAuth';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const BookRoomModal = ({ rooms }) => {
-    const {user} = UseAuth();
+    const navigate = useNavigate();
+    const { user } = UseAuth();
     const axiosSecure = AxiosSecure();
     const [startDate, setStartDate] = useState(new Date());
     const { image, description, title, price, features } = rooms;
 
 
     const handleConfirmBooking = async () => {
-        try{
+        try {
             const bookedRoom = {
                 ...rooms,
                 bookingDate: startDate,
-                user: user?.email 
+                user: user?.email
             }
-            const {data} = await axiosSecure.post('/booked-room', bookedRoom);
-            console.log('booking successful', data)
+            await axiosSecure.post('/booked-room', bookedRoom);
+            toast.success(`${title} has been booked successfully Done!!`)
+            navigate('/myBooking')
             document.getElementById('my_modal_1').close();
         }
         catch (error) {
@@ -53,15 +57,26 @@ const BookRoomModal = ({ rooms }) => {
                             minDate={new Date()}
                         ></DatePicker>
                     </div>
-                    <div className=" mt-3 ">
+                    <p className="font-semibold mt-3">Features:</p>
+                    <div className="flex gap-2 flex-wrap">
+                        {features.map((feature, idx) => (
+                            <p
+                                key={idx}
+                                className="border rounded-md text-center px-2 hover:text-white hover:bg-blue-400"
+                            >
+                                {feature}
+                            </p>
+                        ))}
+                    </div>
+                    <div className=" mt-3">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button 
-                            onClick={handleConfirmBooking }
-                            className="btn w-full  bg-[#7F673A] text-white">Confirm Book</button>
-                            <button 
-                            onClick={handleCancelBooking}
-                            className="btn w-full  bg-[#7F673A] text-white">Cancel</button>
+                            <button
+                                onClick={handleConfirmBooking}
+                                className="btn w-full mb-2 bg-[#7F673A] text-white">Confirm Book</button>
+                            <button
+                                onClick={handleCancelBooking}
+                                className="btn w-full  bg-[#7F673A] text-white">Cancel</button>
                         </form>
                     </div>
                 </div>

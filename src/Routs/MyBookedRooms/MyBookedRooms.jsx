@@ -7,6 +7,7 @@ import UpdateDate from '../UpdateDate/UpdateDate';
 import UseAuth from '../../Hooks/UseAuth';
 import AxiosSecure from '../../Hooks/AxiosSecure';
 import ReviewModal from '../ReviewModal/ReviewModal';
+import { GoCodeReview } from 'react-icons/go';
 
 const MyBookedRooms = () => {
     const { user } = UseAuth();
@@ -155,9 +156,10 @@ const MyBookedRooms = () => {
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button 
+                                                    <button
                                                      onClick={() => handleReviewModal(room)}
-                                                    className="btn">Review</button>
+                                                    className="flex items-center text-gray-500 hover:text-green-500 gap-2"
+                                                    >Review <span><GoCodeReview></GoCodeReview></span></button>
                                                 </td>
                                             </tr>
                                         ))}
