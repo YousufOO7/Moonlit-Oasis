@@ -9,12 +9,13 @@ import SignIn from "../Components/Pages/SignIn/SignIn";
 import Register from "../Components/Pages/Register/Register";
 import ForgotPassword from "../Provider/ForgotPassword";
 import MyBookedRooms from "../Routs/MyBookedRooms/MyBookedRooms";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayOut></MainLayOut>,
-      errorElement: <h2>this is a error page</h2>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path: '/',
