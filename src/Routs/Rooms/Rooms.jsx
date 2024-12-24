@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import AxiosSecure from '../../Hooks/AxiosSecure';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import Aos from 'aos';
 
 const Rooms = (props) => {
     const [rooms, setRooms] = useState([]);
@@ -19,6 +20,11 @@ const Rooms = (props) => {
     useEffect(() => {
         fetchRooms();
     }, []);
+
+    Aos.init({
+        duration: 1000,
+        once: true,
+    });
 
     const handleSortChange = (e) => {
         const selectedSort = e.target.value;
@@ -54,10 +60,12 @@ const Rooms = (props) => {
 
                     return (
                         <Link key={idx} to={`/room/${room._id}`}>
-                            <div className="card card-compact bg-base-100 shadow-xl">
+                            <div
+                                data-aos="fade-up"
+                                className="card card-compact bg-base-100 shadow-xl">
                                 <figure>
                                     <img
-                                        className="w-full bg-cover h-[200px]"
+                                        className="w-full bg-cover h-[200px] transition-transform duration-700 ease-in-out hover:scale-110"
                                         src={room.image}
                                         alt={room.title}
                                     />

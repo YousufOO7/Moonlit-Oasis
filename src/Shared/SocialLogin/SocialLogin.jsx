@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FcGoogle } from 'react-icons/fc';
 import UseAuth from '../../Hooks/UseAuth';
+import { toast } from 'react-toastify';
 
 const SocialLogin = props => {
     const {signInWithGoogle} = UseAuth();
@@ -10,6 +11,7 @@ const SocialLogin = props => {
         signInWithGoogle()
         .then(result => {
             const user = result.user
+            toast.success("SignIn Successful!!")
         })
         .catch(error => {
             console.log(error);

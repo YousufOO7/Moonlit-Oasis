@@ -6,6 +6,7 @@ import StayMemorable from '../StayMemorable/StayMemorable';
 import Services from '../Services/Services';
 import TopRatedRooms from '../TopRatedRooms/TopRatedRooms';
 import Promotion from '../Promotion/Promotion';
+import ShowUserReviews from '../ShowUserReviews/ShowUserReviews';
 
 const Home = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -30,11 +31,14 @@ const Home = (props) => {
       <header>
         <Banner ></Banner>
       </header>
-      <Promotion ></Promotion>
+      <Promotion></Promotion>
       <main>
         <LocationOfHotel ></LocationOfHotel>
         <section>
           <TopRatedRooms ></TopRatedRooms>
+
+          <ShowUserReviews></ShowUserReviews>
+
         </section>
         <StayMemorable ></StayMemorable>
         <Services ></Services>
@@ -58,13 +62,6 @@ const Home = (props) => {
             <h3 className="text-lg font-bold">{promotion.title}</h3>
             <p className="py-4">{promotion.description}</p>
             <div className="modal-action">
-              <a
-                href="/rooms/premium-suite"
-                className="btn btn-primary"
-                onClick={() => setShowModal(false)}
-              >
-                Book Now
-              </a>
             </div>
           </div>
         </dialog>

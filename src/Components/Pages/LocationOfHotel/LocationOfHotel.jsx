@@ -4,7 +4,7 @@ import  './Location.css'
 
 const LocationOfHotel = props => {
     return (
-       <div className='px-5'>
+       <div className='max-w-7xl mx-auto px-5'>
         <h1 className='text-center text-3xl font-bold my-5 underline'>Location Of Our Hotels</h1>
          <MapContainer center={[21.4272, 92.0058]} zoom={13} scrollWheelZoom={true}>
             <TileLayer

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import Aos from 'aos';
 
 const TopRoomsCard = ({ room }) => {
     const { image, description, price, title, features, _id, reviews, room_state } = room;
@@ -10,12 +11,21 @@ const TopRoomsCard = ({ room }) => {
         ? (reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(1)
         : 0;
 
+
+    Aos.init({
+        duration: 1000,
+        once: true,
+    });
+
     return (
         <div>
-            <div className="card card-compact bg-base-100 shadow-xl">
+            <div 
+            key={_id}
+            data-aos="fade-up"
+            className="card card-compact bg-base-100 shadow-xl">
                 <figure>
                     <img
-                        className="w-full bg-cover h-[200px]"
+                        className="w-full bg-cover h-[200px] transition-transform duration-700 ease-in-out hover:scale-110"
                         src={image}
                         alt="rooms"
                     />
