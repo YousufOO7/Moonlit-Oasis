@@ -6,7 +6,7 @@ import { FaStar } from 'react-icons/fa';
 
 const RoomDetails = () => {
   const rooms = useLoaderData();
-  const { image, description, title, price, features, reviews } = rooms;
+  const { image, description, title, price, features, reviews, room_state } = rooms;
 
   const [activeTab, setActiveTab] = useState('description');
 
@@ -17,12 +17,20 @@ const RoomDetails = () => {
           <h3 className="text-xl">
             <b>Price:</b> {price}
           </h3>
-          <button
-            onClick={() => document.getElementById('my_modal_1').showModal()}
-            className='btn bg-[#7F673A] text-white'
-          >
-            Book Room
-          </button>
+          <div className='flex gap-4 items-center'>
+            <b>Room Status:</b>{" "}
+            <div className={`p-2 rounded-full ${room_state === "Available" ? "bg-green-500" : "bg-red-500"
+              }`}>{room_state}</div>
+          </div>
+          <div>
+            <button
+              onClick={() => document.getElementById('my_modal_1').showModal()}
+              className='btn bg-[#7F673A] text-white'
+              disabled={room_state !== "Available"}
+            >
+              Book Room
+            </button>
+          </div>
         </div>
         <img src={image} alt={title} className="h-96 w-full object-cover mb-5" />
 
@@ -76,9 +84,8 @@ const RoomDetails = () => {
                           {[1, 2, 3, 4, 5].map((star) => (
                             <FaStar
                               key={star}
-                              className={`${
-                                star <= review.rating ? 'text-yellow-500' : 'text-gray-300'
-                              }`} 
+                              className={`${star <= review.rating ? 'text-yellow-500' : 'text-gray-300'
+                                }`}
                             />
                           ))}
                           <span className="ml-2 text-gray-700">{review.rating} / 5</span>

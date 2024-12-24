@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 
 const TopRoomsCard = ({ room }) => {
-    const { image, description, price, title, features, _id, reviews } = room;
+    const { image, description, price, title, features, _id, reviews, room_state } = room;
 
     // Calculate the average rating
     const averageRating = reviews?.length
@@ -27,14 +27,14 @@ const TopRoomsCard = ({ room }) => {
 
                     {/* Rating */}
                     <div className="flex items-center mt-2">
-                        <div className="flex gap-1">
+                        <div className="flex  items-center">
+                            <p className='pr-3'><b>Rating:</b></p>
                             {/* Display rating stars */}
                             {[1, 2, 3, 4, 5].map((star) => (
                                 <FaStar
                                     key={star}
-                                    className={`${
-                                        star <= averageRating ? 'text-yellow-500' : 'text-gray-300'
-                                    }`}
+                                    className={` ${star <= averageRating ? 'text-yellow-500' : 'text-gray-300'
+                                        }`}
                                 />
                             ))}
                         </div>
@@ -52,6 +52,11 @@ const TopRoomsCard = ({ room }) => {
                                 {feature}
                             </p>
                         ))}
+                    </div>
+                    <div className='flex gap-36'>
+                        <b>Room Status:</b>{" "}
+                        <div className={`badge ${room_state === "Available" ? "bg-green-500" : "bg-red-500"
+                            }`}>{room_state}</div>
                     </div>
 
                     {/* Book Now Button */}
