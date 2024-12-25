@@ -10,6 +10,7 @@ import Register from "../Components/Pages/Register/Register";
 import ForgotPassword from "../Provider/ForgotPassword";
 import MyBookedRooms from "../Routs/MyBookedRooms/MyBookedRooms";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import PrivateRout from "./PrivateRout";
 
   const router = createBrowserRouter([
     {
@@ -27,7 +28,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
         },
         {
           path: '/myBooking',
-          element: <MyBookedRooms></MyBookedRooms>
+          element: <PrivateRout><MyBookedRooms></MyBookedRooms></PrivateRout>
         },
         {
           path: '/room/:id',

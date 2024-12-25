@@ -1,14 +1,21 @@
 import PropTypes from 'prop-types';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import BookRoomModal from '../BookRoomModal/BookRoomModal';
 import { FaStar } from 'react-icons/fa';
+import UseAuth from '../../Hooks/UseAuth';
 
 const RoomDetails = () => {
+  const { user } = UseAuth();
   const rooms = useLoaderData();
+  const navigate = useNavigate();
   const { image, description, title, price, features, reviews, room_state } = rooms;
 
   const [activeTab, setActiveTab] = useState('description');
+
+  const handleNavigate = () => {
+    navigate('/signIn');
+  }
 
   return (
     <div>
@@ -23,13 +30,18 @@ const RoomDetails = () => {
               }`}>{room_state}</div>
           </div>
           <div>
-            <button
-              onClick={() => document.getElementById('my_modal_1').showModal()}
-              className='btn bg-[#7F673A] text-white'
-              disabled={room_state !== "Available"}
-            >
-              Book Room
-            </button>
+            {
+              user && user.email ? <button
+                onClick={() => document.getElementById('my_modal_1').showModal()}
+                className='btn bg-[#7F673A] text-white'
+                disabled={room_state !== "Available"}
+              >
+                Book Room
+              </button> :
+              <button 
+              onClick={handleNavigate}
+              className='btn bg-[#7F673A] text-white'>Book Room</button>
+         }
           </div>
         </div>
         <img src={image} alt={title} className="h-96 w-full object-cover mb-5" />

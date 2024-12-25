@@ -7,6 +7,7 @@ import Services from '../Services/Services';
 import TopRatedRooms from '../TopRatedRooms/TopRatedRooms';
 import Promotion from '../Promotion/Promotion';
 import ShowUserReviews from '../ShowUserReviews/ShowUserReviews';
+import './ScrollBar.css'
 
 const Home = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -28,21 +29,24 @@ const Home = (props) => {
 
   return (
     <div>
-      <header>
-        <Banner ></Banner>
-      </header>
-      <Promotion></Promotion>
-      <main>
-        <LocationOfHotel ></LocationOfHotel>
-        <section>
-          <TopRatedRooms ></TopRatedRooms>
 
-          <ShowUserReviews></ShowUserReviews>
+      <div className='scroll-container '>
+        <header>
+          <Banner ></Banner>
+        </header>
+        <Promotion></Promotion>
+        <main>
+          <LocationOfHotel ></LocationOfHotel>
+          <section>
+            <TopRatedRooms ></TopRatedRooms>
 
-        </section>
-        <StayMemorable ></StayMemorable>
-        <Services ></Services>
-      </main>
+            <ShowUserReviews></ShowUserReviews>
+
+          </section>
+          <StayMemorable ></StayMemorable>
+          <Services ></Services>
+        </main>
+      </div>
 
       {/* DaisyUI Modal */}
       {showModal && (

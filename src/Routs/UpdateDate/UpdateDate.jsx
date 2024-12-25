@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -6,18 +6,23 @@ import { format } from 'date-fns';
 import AxiosSecure from '../../Hooks/AxiosSecure';
 import { toast } from 'react-toastify';
 
-const UpdateDate = ({ selectedRoom }) => {
+const UpdateDate = ({ selectedRoom, onBookingUpdate }) => {
     const [startDate, setStartDate] = useState(new Date());
+    const [loading, setLoading] = useState(false);
     const axiosSecure = AxiosSecure();
 
     const handleConfirmUpdate = async id => {
+        setLoading(true); 
         try {
             const updateDate = { bookingDate: startDate };
             await axiosSecure.put(`/dateUpdate/${id}`, updateDate);
             toast.success('Booking updated successfully!!');
+            onBookingUpdate(); 
             document.getElementById('my_modal_1').close();
         } catch (error) {
-            console.error('Failed to update booking:', error);
+            toast.error('Failed to update booking. Please try again.');
+        } finally {
+            setLoading(false); 
         }
     };
 
@@ -27,7 +32,6 @@ const UpdateDate = ({ selectedRoom }) => {
 
     return (
         <div>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
                     <div>
@@ -53,10 +57,11 @@ const UpdateDate = ({ selectedRoom }) => {
                         <button
                             onClick={() => handleConfirmUpdate(selectedRoom?._id)}
                             className="btn w-full bg-[#7F673A] text-white"
+                            disabled={loading}
                         >
-                            Confirm Update
+                            {loading ? 'Updating...' : 'Confirm Update'}
                         </button>
-                        <button onClick={handleCancelUpdate} className="btn  bg-[#7F673A] text-white">
+                        <button onClick={handleCancelUpdate} className="btn bg-[#7F673A] text-white">
                             Cancel
                         </button>
                     </div>
@@ -67,7 +72,7 @@ const UpdateDate = ({ selectedRoom }) => {
 };
 
 UpdateDate.propTypes = {
-
+    
 };
 
 export default UpdateDate;

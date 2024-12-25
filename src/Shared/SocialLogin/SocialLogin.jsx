@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import { FcGoogle } from 'react-icons/fc';
 import UseAuth from '../../Hooks/UseAuth';
 import { toast } from 'react-toastify';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = props => {
     const {signInWithGoogle} = UseAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleGoogleLogIn = () => {
         signInWithGoogle()
         .then(result => {
             const user = result.user
+            navigate(location?.state ? location?.state : '/')
             toast.success("SignIn Successful!!")
         })
         .catch(error => {

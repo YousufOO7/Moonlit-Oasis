@@ -18,7 +18,7 @@ const StayMemorable = props => {
     }, []);
 
     return (
-        <div className='bg-slate-300 my-10 py-10'>
+        <div className='bg-slate-300 max-w-7xl mx-auto my-10 py-10'>
             <h2 className="text-4xl font-bold text-center">Make Your Stay Memorable</h2>
             <p className="font-thin text-center my-3">
                 Enjoy comfort, luxury, and personalized service at our hotel. Let us make your stay truly unforgettable.
