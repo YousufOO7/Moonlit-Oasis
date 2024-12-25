@@ -19,7 +19,7 @@ const MyBookedRooms = () => {
     const fetchRooms = async () => {
         setLoading(true); 
         try {
-            const res = await axiosSecure.get(`/booked-room?email=${user?.email}`);
+            const res = await axiosSecure.get(`/booked-room?email=${user?.email}`, {withCredentials: true});
             setRooms(res.data);
         } catch (error) {
             console.error('Failed to fetch rooms:', error);

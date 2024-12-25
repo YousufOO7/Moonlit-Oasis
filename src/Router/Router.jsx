@@ -33,7 +33,7 @@ import PrivateRout from "./PrivateRout";
         {
           path: '/room/:id',
           element: <RoomDetails></RoomDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
+          loader: ({params}) => fetch(`https://hotel-server-side-kappa.vercel.app/rooms/${params.id}`)
         },
         {
           path: '/signIn',

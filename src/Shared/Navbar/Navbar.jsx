@@ -54,8 +54,8 @@ const Navbar = props => {
             <div className="navbar-end">
                 {
                     user && user?.email ? <div className='flex items-center gap-2'>
-                        <p>{user?.displayName}</p>
-                        <img referrerPolicy='no-referrer' className='h-[40px] rounded-full hidden md:block mr-2' src={user?.photoURL} alt="image" />
+                        <p className='hidden md:block '>{user?.displayName}</p>
+                        <img referrerPolicy='no-referrer' className='h-[40px] rounded-full mr-2' src={user?.photoURL} alt="image" />
                     </div> : ''
                 }
                 {
