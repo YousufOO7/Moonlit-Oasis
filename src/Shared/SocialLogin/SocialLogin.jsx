@@ -18,7 +18,7 @@ const SocialLogin = props => {
             toast.success("SignIn Successful!!")
         })
         .catch(error => {
-            console.log(error);
+            toast.error("Something was wrong give valid info!!")
         })
     }
 

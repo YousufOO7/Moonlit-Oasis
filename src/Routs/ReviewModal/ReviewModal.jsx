@@ -23,7 +23,6 @@ const ReviewModal = ({ selectedRoom }) => {
             timestamp: new Date().toISOString(),
         };
 
-        console.log(review);
         try {
             // Post review data to the server
             const response = await axiosSecure.post(`/rooms/reviews`, review);
@@ -34,7 +33,7 @@ const ReviewModal = ({ selectedRoom }) => {
                 toast.error('Failed to submit review');
             }
         } catch (error) {
-            console.error('Error submitting review:', error);
+            toast.error('Failed to submit review');
         }
 
     };

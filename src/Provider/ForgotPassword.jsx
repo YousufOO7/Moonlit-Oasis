@@ -21,7 +21,7 @@ const ForgotPassword = props => {
             toast.success("Password reset email sent! Redirecting to Gmail...");
             window.location.href = "https://mail.google.com"; 
         } catch (error) {
-            console.error(error);
+            // console.error(error);
             toast.error("Failed to send password reset email. Please try again.");
         }
     };

@@ -22,7 +22,7 @@ const MyBookedRooms = () => {
             const res = await axiosSecure.get(`/booked-room?email=${user?.email}`, {withCredentials: true});
             setRooms(res.data);
         } catch (error) {
-            console.error('Failed to fetch rooms:', error);
+            // console.error('Failed to fetch rooms:', error);
         } finally {
             setLoading(false);
         }
@@ -70,7 +70,7 @@ const MyBookedRooms = () => {
                         icon: "success",
                     });
                 } catch (error) {
-                    console.error("Failed to cancel booking:", error);
+                    // console.error("Failed to cancel booking:", error);
                     Swal.fire({
                         title: "Error!",
                         text: "Failed to cancel the booking. Please try again later.",

@@ -19,10 +19,10 @@ const AxiosSecure = () => {
             console.log('caught the error', error);
 
             if(error.status === 401 || error.status === 403){
-                console.log('need the logout the user')
+                // console.log('need the logout the user')
                Logout()
                .then(() => {
-                console.log('User logout')
+                // console.log('User logout')
                 navigate('/signIn')
                })
             }

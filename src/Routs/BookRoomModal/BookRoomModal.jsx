@@ -28,7 +28,7 @@ const BookRoomModal = ({ rooms }) => {
             document.getElementById('my_modal_1').close();
         }
         catch (error) {
-            console.error("Booking Failed:", error);
+            toast.error(`${error}`)
         }
     }
 

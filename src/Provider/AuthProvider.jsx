@@ -60,14 +60,14 @@ const AuthProvider = ({ children }) => {
                 const userInfo = {email: currentUser.email};
                 axios.post('https://hotel-server-side-kappa.vercel.app/jwt', userInfo, {withCredentials: true})
                 .then(res => {
-                    console.log( 'login token' ,res.data)
+                    // console.log( 'login token' ,res.data)
                     setLoading(false);
                 })
             }
             else{
                 axios.post('https://hotel-server-side-kappa.vercel.app/logout', {}, {withCredentials: true})
                 .then(res => {
-                    console.log('logout', res.data)
+                    // console.log('logout', res.data)
                     setLoading(false);
                 })
             }
