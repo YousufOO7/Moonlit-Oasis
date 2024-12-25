@@ -14,6 +14,7 @@ const ReviewModal = ({ selectedRoom }) => {
         e.preventDefault();
         const review = {
             userName: user?.displayName,
+            userPhoto: user?.photoURL,
             userEmail: user?.email,
             roomId: selectedRoom?._id,
             roomTitle: selectedRoom?.title,
