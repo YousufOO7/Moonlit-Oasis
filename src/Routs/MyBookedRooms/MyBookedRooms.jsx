@@ -116,7 +116,13 @@ const MyBookedRooms = () => {
                                             <thead className="bg-gray-50">
                                                 <tr>
                                                     <th className="py-3.5 px-4 text-sm font-normal text-left text-gray-500">
+                                                        No
+                                                    </th>
+                                                    <th className="py-3.5 px-4 text-sm font-normal text-left text-gray-500">
                                                         Title
+                                                    </th>
+                                                    <th className="py-3.5 px-4 text-sm font-normal text-left text-gray-500">
+                                                        Image
                                                     </th>
                                                     <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
                                                         Deadline
@@ -136,10 +142,16 @@ const MyBookedRooms = () => {
                                                 </tr>
                                             </thead>
                                             <tbody className="bg-white divide-y divide-gray-200">
-                                                {rooms.map((room) => (
+                                                {rooms.map((room, idx) => (
                                                     <tr key={room._id}>
                                                         <td className="px-4 py-4 text-sm text-gray-500">
+                                                            {idx + 1}
+                                                        </td>
+                                                        <td className="px-4 py-4 text-sm text-gray-500">
                                                             {room.title}
+                                                        </td>
+                                                        <td className="px-4 py-4 text-sm text-gray-500">
+                                                            <img src={room.image} className='w-16 h-16 rounded-2xl' alt={room.title} />
                                                         </td>
                                                         <td className="px-4 py-4 text-sm text-gray-500">
                                                             {format(new Date(room.bookingDate), 'P')}
