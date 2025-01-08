@@ -10,7 +10,7 @@
 </ul>
 <h3>How to use manually</h3>
 <ul>
-  <p>run npm install to client and server side</p>p
+  <p>run npm install to client and server side</p>
 </ul>
 
 <h3>Npm package:</h3>
