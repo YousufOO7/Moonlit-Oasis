@@ -1,5 +1,5 @@
 <h1>Project Name: Room Booking</h1>
-<p>he purpose of developing a hotel room booking website is to provide an efficient, user-friendly platform that connects travelers with available accommodations.Offer a seamless process to check room availability, pricing, and amenities.Enable customers to book rooms online 24/7 without the need for phone calls or in-person visits.Maximize occupancy rates by showcasing rooms to a broader audience.Implement dynamic pricing strategies and promotions to attract more bookings.</p>
+<p>The purpose of developing a hotel room booking website is to provide an efficient, user-friendly platform that connects travelers with available accommodations.Offer a seamless process to check room availability, pricing, and amenities.Enable customers to book rooms online 24/7 without the need for phone calls or in-person visits.Maximize occupancy rates by showcasing rooms to a broader audience.Implement dynamic pricing strategies and promotions to attract more bookings.</p>
 
 <h1>Project Live link: https://room-booking-75e27.web.app</h1>
 
@@ -7,6 +7,10 @@
 <ul>
 <li>CRUD operation</li>
 <li>JWT authentication</li>
+</ul>
+<h3>How to use manually</h3>
+<ul>
+  <p>run npm install to client and server side</p>p
 </ul>
 
 <h3>Npm package:</h3>
