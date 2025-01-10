@@ -36,7 +36,6 @@ const Home = (props) => {
         </header>
         <Promotion></Promotion>
         <main>
-          <LocationOfHotel ></LocationOfHotel>
           <section>
             <TopRatedRooms ></TopRatedRooms>
 
@@ -45,6 +44,7 @@ const Home = (props) => {
           </section>
           <StayMemorable ></StayMemorable>
           <Services ></Services>
+          <LocationOfHotel ></LocationOfHotel>
         </main>
       </div>
 

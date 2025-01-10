@@ -10,6 +10,7 @@ const RoomDetails = () => {
   const rooms = useLoaderData();
   const navigate = useNavigate();
   const { image, description, title, price, features, reviews, room_state } = rooms;
+  console.log(rooms)
 
   const [activeTab, setActiveTab] = useState('description');
 
@@ -18,7 +19,7 @@ const RoomDetails = () => {
   }
 
   return (
-    <div>
+    <div className='pt-20'>
       <div className="max-w-6xl mx-auto my-5 px-5">
         <div className='flex justify-between my-3 items-center'>
           <h3 className="text-xl">
@@ -74,7 +75,7 @@ const RoomDetails = () => {
                 <p className="text-gray-700">{description}</p>
                 <p className="font-semibold mt-3 text-xl">Features:</p>
                 <ul className="mt-3 list-disc list-inside">
-                  {features.map((feature, index) => (
+                  {features?.map((feature, index) => (
                     <li key={index} className="text-gray-600">
                       {feature}
                     </li>

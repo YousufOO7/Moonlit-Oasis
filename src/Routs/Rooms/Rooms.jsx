@@ -33,7 +33,7 @@ const Rooms = (props) => {
     };
 
     return (
-        <div>
+        <div className='pt-20'>
             <h1 className="text-4xl text-center font-bold my-5">All Rooms</h1>
 
             {/* Sort Dropdown */}
@@ -72,9 +72,14 @@ const Rooms = (props) => {
                                 </figure>
                                 <div className="card-body">
                                     <h2 className="card-title text-2xl">{room.title}</h2>
-                                    <p>
-                                        <b>Price:</b> {room.price}
-                                    </p>
+                                    <div className='flex justify-between'>
+                                        <div>
+                                            <b>Price:</b>
+                                        </div>
+                                        <div>
+                                            <b>{room.price}</b>
+                                        </div>
+                                    </div>
 
                                     {/* Review and Rating */}
                                     <div className="mt-1">
@@ -93,8 +98,15 @@ const Rooms = (props) => {
                                         </div>
 
                                         {/* Display review count */}
-                                        <p className=""><b>Reviews:</b> {reviewCount} {reviewCount !== 1 ? '' : ""}
-                                        </p>
+                                        <div className='flex justify-between mt-1'>
+                                            <div>
+                                                <p className=""><b>Reviews:</b>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                {reviewCount} {reviewCount !== 1 ? '' : ""}
+                                            </div>
+                                        </div>
                                     </div>
                                     {/* <p><b>Rome State:</b> {room.room_state}</p> */}
 

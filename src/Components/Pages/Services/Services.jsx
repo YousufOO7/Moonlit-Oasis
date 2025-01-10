@@ -22,7 +22,7 @@ const Services = props => {
             <h3 className="text-lg font-semibold text-center mb-2">SERVICES</h3>
             <h2 className="text-4xl font-bold text-center">Bring You The Best Experience</h2>
 
-            <div className='max-w-5xl mx-auto my-5 space-y-2 px-5'>
+            <div className='max-w-6xl mx-auto my-5 space-y-2 px-5'>
                 {
                     services.map((data, idx) => <div
                         data-aos="fade-up"

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import footerLogo from '../../../public/hotel-logo.avif'
+import footerLogo from '../../../public/image/navbar.jpg'
 
 const Footer = props => {
     return (

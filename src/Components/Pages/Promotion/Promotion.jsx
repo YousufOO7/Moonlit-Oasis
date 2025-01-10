@@ -7,18 +7,18 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // Import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 // Import images
 import image1 from "../../../assets/image1.jpg";
-import image2 from "../../../assets/images2.jpeg";
-import image3 from "../../../assets/image3.jpg";
+import image2 from "../../../assets/mountain.webp";
+import image3 from "../../../assets/premium.jpeg";
 
 const Promotion = () => {
   return (
-    <div className="max-w-7xl mx-auto my-5">
+    <div className="mb-10 mt-5">
       {/* Header */}
-      <div className="my-5">
+      <div className="mb-10">
         <motion.h1
           animate={{ x: [0, 50, 0] }}
           transition={{ duration: 5, delay: 1, ease: "easeInOut", repeat: Infinity }}
@@ -47,8 +47,8 @@ const Promotion = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        // navigation={true}
+        modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
         <SwiperSlide>

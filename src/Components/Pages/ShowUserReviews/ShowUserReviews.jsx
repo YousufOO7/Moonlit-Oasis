@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // Import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 const ShowUserReviews = props => {
     const [allReviews, setAllReviews] = useState([]);
@@ -33,8 +33,8 @@ const ShowUserReviews = props => {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold text-center my-3">User Reviews</h2>
-            <div className="max-w-4xl mx-auto my-8">
+            <h2 className="text-2xl lg:text-4xl font-bold text-center my-3">User Reviews</h2>
+            <div className="lg:px-28 my-8">
                 <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
@@ -46,8 +46,8 @@ const ShowUserReviews = props => {
                     pagination={{
                         clickable: true,
                     }}
-                    navigation={true}
-                    modules={[Autoplay, Pagination, Navigation]}
+                    // navigation={true}
+                    modules={[Autoplay, Pagination]}
                     className="mySwiper"
                 >
                     {allReviews?.map((review, index) => (

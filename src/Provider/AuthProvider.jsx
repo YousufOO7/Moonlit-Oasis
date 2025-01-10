@@ -58,14 +58,14 @@ const AuthProvider = ({ children }) => {
 
             if(currentUser?.email){
                 const userInfo = {email: currentUser.email};
-                axios.post('https://hotel-server-side-kappa.vercel.app/jwt', userInfo, {withCredentials: true})
+                axios.post('http://localhost:5000/jwt', userInfo, {withCredentials: true})
                 .then(res => {
                     // console.log( 'login token' ,res.data)
                     setLoading(false);
                 })
             }
             else{
-                axios.post('https://hotel-server-side-kappa.vercel.app/logout', {}, {withCredentials: true})
+                axios.post('http://localhost:5000/logout', {}, {withCredentials: true})
                 .then(res => {
                     // console.log('logout', res.data)
                     setLoading(false);

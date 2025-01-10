@@ -15,6 +15,7 @@ const MyBookedRooms = () => {
     const [rooms, setRooms] = useState([]);
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [loading, setLoading] = useState(true);
+    console.log(rooms)
 
     const fetchRooms = async () => {
         setLoading(true); 
@@ -93,8 +94,8 @@ const MyBookedRooms = () => {
     }
 
     return (
-        <div>
-            <section className="container px-4 mx-auto pt-12">
+        <div className='pt-20'> 
+            <section className="max-w-6xl px-4 md:px-0 mx-auto pt-12">
                 {loading ? (
                     <div className="flex justify-center items-center h-32">
                         <p>Loading...</p>

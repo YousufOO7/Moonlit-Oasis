@@ -22,7 +22,7 @@ const TopRoomsCard = ({ room }) => {
             <div 
             key={_id}
             data-aos="fade-up"
-            className="card card-compact bg-base-100 shadow-xl">
+            className="card card-compact bg-base-100 border hover:shadow-xl">
                 <figure>
                     <img
                         className="w-full bg-cover h-[200px] transition-transform duration-700 ease-in-out hover:scale-110"
@@ -52,7 +52,7 @@ const TopRoomsCard = ({ room }) => {
                     </div>
 
                     {/* Features */}
-                    <p className="font-semibold mt-3">Features:</p>
+                    {/* <p className="font-semibold mt-3">Features:</p> */}
                     <div className="flex gap-2 flex-wrap">
                         {features.map((feature, idx) => (
                             <p
