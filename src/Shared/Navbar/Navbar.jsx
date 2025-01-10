@@ -30,6 +30,7 @@ const Navbar = props => {
             user?.email ? <li><NavLink to="/myBooking">My Bookings</NavLink></li> : ''
         }
         <li><NavLink to="/aboutUs">About Us</NavLink></li>
+        <li><NavLink to="/faq">FAQ</NavLink></li>
     </>
 
     return (
