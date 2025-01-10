@@ -58,14 +58,14 @@ const AuthProvider = ({ children }) => {
 
             if(currentUser?.email){
                 const userInfo = {email: currentUser.email};
-                axios.post('http://localhost:5000/jwt', userInfo, {withCredentials: true})
+                axios.post('https://room-booking-server-mu.vercel.app/jwt', userInfo, {withCredentials: true})
                 .then(res => {
                     // console.log( 'login token' ,res.data)
                     setLoading(false);
                 })
             }
             else{
-                axios.post('http://localhost:5000/logout', {}, {withCredentials: true})
+                axios.post('https://room-booking-server-mu.vercel.app/logout', {}, {withCredentials: true})
                 .then(res => {
                     // console.log('logout', res.data)
                     setLoading(false);

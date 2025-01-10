@@ -43,7 +43,7 @@ import FAQ from "../Components/Pages/FAQ/FAQ";
         {
           path: '/room/:id',
           element: <RoomDetails></RoomDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
+          loader: ({params}) => fetch(`https://room-booking-server-mu.vercel.app/rooms/${params.id}`)
         },
         {
           path: '/signIn',
