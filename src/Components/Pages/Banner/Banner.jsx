@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Banner = props => {
     return (
-        <div className='pt-20 pb5'>
+        <div className='pt-24 '>
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
                     <div

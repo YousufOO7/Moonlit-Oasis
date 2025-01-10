@@ -33,7 +33,7 @@ const ShowUserReviews = props => {
 
     return (
         <div>
-            <h2 className="text-2xl lg:text-4xl font-bold text-center my-3">User Reviews</h2>
+            <h2 className="text-2xl lg:text-4xl font-bold text-center my-3 dark:text-white">User Reviews</h2>
             <div className="lg:px-28 my-8">
                 <Swiper
                     spaceBetween={30}

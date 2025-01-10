@@ -15,7 +15,6 @@ const MyBookedRooms = () => {
     const [rooms, setRooms] = useState([]);
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [loading, setLoading] = useState(true);
-    console.log(rooms)
 
     const fetchRooms = async () => {
         setLoading(true); 
@@ -94,7 +93,7 @@ const MyBookedRooms = () => {
     }
 
     return (
-        <div className='pt-20'> 
+        <div className='pt-20 dark:text-white'> 
             <section className="max-w-6xl px-4 md:px-0 mx-auto pt-12">
                 {loading ? (
                     <div className="flex justify-center items-center h-32">
@@ -103,71 +102,71 @@ const MyBookedRooms = () => {
                 ) : (
                     <>
                         <div className="flex items-center gap-x-3">
-                            <h2 className="text-lg font-medium text-gray-800">My Booking Rooms</h2>
-                            <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full">
+                            <h2 className="text-lg font-medium dark:text-white  text-gray-800">My Booking Rooms</h2>
+                            <span className="px-3 py-1 text-xs dark:text-black text-blue-600 bg-blue-100 rounded-full">
                                 {rooms?.length}
                             </span>
                         </div>
 
-                        <div className="flex flex-col mt-6">
-                            <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                                    <div className="overflow-hidden border border-gray-200 md:rounded-lg">
-                                        <table className="min-w-full divide-y divide-gray-200">
-                                            <thead className="bg-gray-50">
+                        <div className="flex flex-col mt-6 pb-5 dark:bg-black dark:text-white">
+                            <div className="-mx-4 -my-2  overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div className="inline-block  min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                    <div className="overflow-hidden border  border-gray-200 md:rounded-lg">
+                                        <table className="min-w-full divide-y  divide-gray-200">
+                                            <thead className="bg-gray-50 dark:bg-black">
                                                 <tr>
-                                                    <th className="py-3.5 px-4 text-sm font-normal text-left text-gray-500">
+                                                    <th className="py-3.5 px-4 text-sm font-normal text-left dark:text-white text-gray-500">
                                                         No
                                                     </th>
-                                                    <th className="py-3.5 px-4 text-sm font-normal text-left text-gray-500">
+                                                    <th className="py-3.5 px-4 text-sm font-normal text-left dark:text-white text-gray-500">
                                                         Title
                                                     </th>
-                                                    <th className="py-3.5 px-4 text-sm font-normal text-left text-gray-500">
+                                                    <th className="py-3.5 px-4 text-sm font-normal text-left dark:text-white text-gray-500">
                                                         Image
                                                     </th>
-                                                    <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
+                                                    <th className="px-4 py-3.5 text-sm font-normal text-left dark:text-white text-gray-500">
                                                         Deadline
                                                     </th>
-                                                    <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
+                                                    <th className="px-4 py-3.5 text-sm font-normal text-left dark:text-white text-gray-500">
                                                         Price Range
                                                     </th>
-                                                    <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
+                                                    <th className="px-4 py-3.5 text-sm font-normal text-left dark:text-white text-gray-500">
                                                         Description
                                                     </th>
-                                                    <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
+                                                    <th className="px-4 py-3.5 text-sm font-normal text-left dark:text-white text-gray-500">
                                                         Actions
                                                     </th>
-                                                    <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
+                                                    <th className="px-4 py-3.5 text-sm font-normal text-left dark:text-white text-gray-500">
                                                         Review
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody className="bg-white divide-y divide-gray-200">
+                                            <tbody className="bg-white divide-y divide-gray-200 dark:bg-black">
                                                 {rooms.map((room, idx) => (
                                                     <tr key={room._id}>
-                                                        <td className="px-4 py-4 text-sm text-gray-500">
+                                                        <td className="px-4 py-4 text-sm dark:text-white text-gray-500">
                                                             {idx + 1}
                                                         </td>
-                                                        <td className="px-4 py-4 text-sm text-gray-500">
+                                                        <td className="px-4 py-4 text-sm dark:text-white text-gray-500">
                                                             {room.title}
                                                         </td>
-                                                        <td className="px-4 py-4 text-sm text-gray-500">
+                                                        <td className="px-4 py-4 text-sm dark:text-white text-gray-500">
                                                             <img src={room.image} className='w-16 h-16 rounded-2xl' alt={room.title} />
                                                         </td>
-                                                        <td className="px-4 py-4 text-sm text-gray-500">
+                                                        <td className="px-4 py-4 text-sm dark:text-white text-gray-500">
                                                             {format(new Date(room.bookingDate), 'P')}
                                                         </td>
-                                                        <td className="px-4 py-4 text-sm text-gray-500">
+                                                        <td className="px-4 py-4 text-sm dark:text-white text-gray-500">
                                                             {room.price}
                                                         </td>
-                                                        <td className="px-4 py-4 text-sm text-gray-500">
+                                                        <td className="px-4 py-4 text-sm dark:text-white text-gray-500">
                                                             {room.description.slice(0, 40)}...
                                                         </td>
                                                         <td className="px-4 py-4 text-sm">
                                                             <div className="flex items-center gap-x-6">
                                                                 <button
                                                                     onClick={() => handleDelete(room)}
-                                                                    className="text-gray-500 hover:text-red-500"
+                                                                    className="text-gray-500 dark:text-white hover:text-red-500"
                                                                 >
                                                                     <div className="flex gap-1">
                                                                         <b>Cancel</b>
@@ -177,7 +176,7 @@ const MyBookedRooms = () => {
 
                                                                 <button
                                                                     onClick={() => handleUpdateDateModal(room)}
-                                                                    className="text-gray-500 hover:text-yellow-500"
+                                                                    className="text-gray-500 dark:text-white hover:text-yellow-500"
                                                                 >
                                                                     <div className="flex gap-1">
                                                                         <b>Update Date</b>
@@ -189,7 +188,7 @@ const MyBookedRooms = () => {
                                                         <td>
                                                             <button
                                                                 onClick={() => handleReviewModal(room)}
-                                                                className="flex items-center text-gray-500 hover:text-green-500 gap-2"
+                                                                className="flex dark:text-white items-center text-gray-500 hover:text-green-500 gap-2"
                                                             >Review <span><GoCodeReview></GoCodeReview></span></button>
                                                         </td>
                                                     </tr>

@@ -18,7 +18,7 @@ const Promotion = () => {
   return (
     <div className="mb-10 mt-5">
       {/* Header */}
-      <div className="mb-10">
+      <div className="mb-10 dark:text-white">
         <motion.h1
           animate={{ x: [0, 50, 0] }}
           transition={{ duration: 5, delay: 1, ease: "easeInOut", repeat: Infinity }}

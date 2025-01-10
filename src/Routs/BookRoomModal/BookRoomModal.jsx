@@ -40,7 +40,7 @@ const BookRoomModal = ({ rooms }) => {
     return (
         <div>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="my_modal_1" className="modal">
+            <dialog id="my_modal_1" className="modal dark:text-black">
                 <div className="modal-box">
                     <div>
                         <img src={image} alt="" className='w-full h-[180px]' />

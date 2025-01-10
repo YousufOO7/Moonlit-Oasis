@@ -32,7 +32,7 @@ const UpdateDate = ({ selectedRoom, onBookingUpdate }) => {
 
     return (
         <div>
-            <dialog id="my_modal_1" className="modal">
+            <dialog id="my_modal_1" className="modal dark:text-black">
                 <div className="modal-box">
                     <div>
                         <img src={selectedRoom?.image} alt="Room" className="w-full h-[180px]" />

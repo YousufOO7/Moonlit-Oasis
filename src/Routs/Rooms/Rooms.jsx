@@ -33,24 +33,24 @@ const Rooms = (props) => {
     };
 
     return (
-        <div className='pt-20'>
+        <div className='pt-20 dark:text-white'>
             <h1 className="text-4xl text-center font-bold my-5">All Rooms</h1>
 
             {/* Sort Dropdown */}
-            <div className="flex justify-end max-w-6xl mx-auto px-5 mb-5">
+            <div className="flex justify-center max-w-6xl mx-auto px-5 mb-5">
                 <select
                     value={sortOption}
                     onChange={handleSortChange}
-                    className="select select-bordered w-52"
+                    className="select select-bordered w-52 dark:bg-black dark:text-white dark:border-white"
                 >
-                    <option value="">Sort By</option>
-                    <option value="priceAsc">Price: Low to High</option>
-                    <option value="priceDesc">Price: High to Low</option>
+                    <option className='dark:bg-black dark:text-white' value="">Sort By</option>
+                    <option className='dark:bg-black dark:text-white' value="priceAsc">Price: Low to High</option>
+                    <option className='dark:bg-black dark:text-white' value="priceDesc">Price: High to Low</option>
                 </select>
             </div>
 
             {/* Rooms Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-10 max-w-6xl mx-auto px-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-10 mt-10 max-w-6xl mx-auto px-5">
                 {rooms.map((room, idx) => {
                     // Calculate average rating
                     const averageRating = room.reviews?.length
@@ -62,10 +62,10 @@ const Rooms = (props) => {
                         <Link key={idx} to={`/room/${room._id}`}>
                             <div
                                 data-aos="fade-up"
-                                className="card card-compact bg-base-100 shadow-xl">
+                                className="card card-compact bg-base-100 shadow-xl dark:bg-black dark:border-b">
                                 <figure>
                                     <img
-                                        className="w-full bg-cover h-[200px] transition-transform duration-700 ease-in-out hover:scale-110"
+                                        className="w-full bg-cover h-[200px] transition-transform duration-700 ease-in-out hover:scale-110 dark:border-b dark:p-1"
                                         src={room.image}
                                         alt={room.title}
                                     />
@@ -94,7 +94,7 @@ const Rooms = (props) => {
                                                 />
                                             ))}
                                             {/* Display the average rating and review count */}
-                                            <span className="ml-2 text-gray-700">{averageRating} / 5</span>
+                                            <span className="ml-2 dark:text-white text-gray-700">{averageRating} / 5</span>
                                         </div>
 
                                         {/* Display review count */}
@@ -112,7 +112,7 @@ const Rooms = (props) => {
 
                                     <div className='flex gap-36'>
                                         <b>Room Status:</b>{" "}
-                                        <div className={`badge ${room.room_state === "Available" ? "bg-green-500" : "bg-red-500"
+                                        <div className={`badge ${room.room_state === "Available" ? "bg-green-500 dark:text-white dark:text-opacity-80" : "bg-red-500 dark:text-white dark:text-opacity-80"
                                             }`}>{room.room_state}</div>
                                     </div>
 

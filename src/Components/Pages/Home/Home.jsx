@@ -30,7 +30,7 @@ const Home = (props) => {
   return (
     <div>
 
-      <div className='scroll-container '>
+      <div className='scroll-container dark:bg-black'>
         <header>
           <Banner ></Banner>
         </header>

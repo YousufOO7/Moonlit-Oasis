@@ -45,7 +45,7 @@ const ReviewModal = ({ selectedRoom }) => {
     return (
         <div>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle dark:text-black">
                 <form onSubmit={handleSubmit} className="modal-box">
                     <div className="card-body">
                         <div className="form-control">

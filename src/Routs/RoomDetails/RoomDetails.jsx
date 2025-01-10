@@ -19,8 +19,8 @@ const RoomDetails = () => {
   }
 
   return (
-    <div className='pt-20'>
-      <div className="max-w-6xl mx-auto my-5 px-5">
+    <div className='pt-20 dark:text-white'>
+      <div className="max-w-6xl mx-auto pb-5 mt-5 px-5">
         <div className='flex justify-between my-3 items-center'>
           <h3 className="text-xl">
             <b>Price:</b> {price}
@@ -52,7 +52,7 @@ const RoomDetails = () => {
           <div role="tablist" className="tabs tabs-lifted">
             <button
               role="tab"
-              className={`tab text-2xl font-semibold ${activeTab === 'description' ? 'tab-active' : ''}`}
+              className={`tab text-2xl font-semibold  ${activeTab === 'description' ? 'tab-active' : ''}`}
               onClick={() => setActiveTab('description')}
             >
               Description
@@ -72,11 +72,11 @@ const RoomDetails = () => {
               <div>
                 <h1 className="text-2xl font-bold mb-3">Title: {title}</h1>
                 <h3 className="text-lg font-bold">Description:</h3>
-                <p className="text-gray-700">{description}</p>
-                <p className="font-semibold mt-3 text-xl">Features:</p>
+                <p className="text-gray-700 dark:text-white">{description}</p>
+                <p className="font-semibold mt-3 text-xl ">Features:</p>
                 <ul className="mt-3 list-disc list-inside">
                   {features?.map((feature, index) => (
-                    <li key={index} className="text-gray-600">
+                    <li key={index} className="text-gray-600 dark:text-white">
                       {feature}
                     </li>
                   ))}
@@ -89,9 +89,9 @@ const RoomDetails = () => {
 
                 {/* Show reviews */}
                 {reviews?.length > 0 ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5 ">
                     {reviews.map((review, index) => (
-                      <div key={index} className="card p-4 shadow-lg rounded-md bg-white">
+                      <div key={index} className="card p-4 shadow-lg rounded-md bg-white dark:bg-black dark:text-white border">
                         <h4 className="font-bold">{review.userName}</h4>
                         <div className="flex items-center text-yellow-500">
                           {[1, 2, 3, 4, 5].map((star) => (
@@ -101,18 +101,18 @@ const RoomDetails = () => {
                                 }`}
                             />
                           ))}
-                          <span className="ml-2 text-gray-700">{review.rating} / 5</span>
+                          <span className="ml-2 text-gray-700 dark:text-white">{review.rating} / 5</span>
                         </div>
 
-                        <p className="text-gray-700 mt-2">{review.comment}</p>
-                        <p className="text-sm text-gray-500 mt-2">
+                        <p className="text-gray-700 mt-2 dark:text-white">{review.comment}</p>
+                        <p className="text-sm text-gray-500 mt-2 dark:text-white">
                           {new Date(review.timestamp).toLocaleDateString()}
                         </p>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="mt-5 text-gray-700">No reviews available yet.</p>
+                  <p className="mt-5 text-gray-700 dark:text-white">No reviews available yet.</p>
                 )}
               </div>
             )}

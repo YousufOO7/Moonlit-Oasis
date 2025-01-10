@@ -30,9 +30,9 @@ const TopRatedRooms = props => {
 
     return (
         <div>
-            <h1 className="text-2xl md:text-4xl  text-center font-bold my-5">
+            <h1 className="text-2xl md:text-4xl  text-center font-bold my-5 dark:text-white">
                 Showing Luxury Rooms</h1>
-            <p className="text-center w-4/6 mx-auto">Stay in a cheerful, harmonious environment with elegant spaces. Enjoy modern amenities that inspire relaxation and seamless living.</p>
+            <p className="text-center w-4/6 mx-auto dark:text-white dark:text-opacity-80">Stay in a cheerful, harmonious environment with elegant spaces. Enjoy modern amenities that inspire relaxation and seamless living.</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10 max-w-6xl mx-auto px-5">
                 {topRatedRooms.map((room, idx) => (

@@ -18,7 +18,7 @@ const StayMemorable = props => {
     }, []);
 
     return (
-        <div className='bg-pink-100  my-10 py-10'>
+        <div className='bg-pink-100  my-10 py-10 dark:bg-black dark:text-white'>
             <div className='max-w-6xl mx-auto'>
                 <h2 className="text-4xl font-bold text-center">Make Your Stay Memorable</h2>
                 <p className="font-thin text-center my-3">
@@ -30,12 +30,12 @@ const StayMemorable = props => {
                         <div
                             data-aos="fade-up"
                             key={index}
-                            className="card bg-base-100  shadow-xl mx-auto ">
+                            className="card bg-base-100 dark:bg-black border shadow-xl mx-auto ">
                             <figure className="">
                                 <img
                                     src={card.image}
                                     alt="Shoes"
-                                    className="rounded-xl w-full h-[180px] bg-cover transition-transform duration-700 ease-in-out hover:scale-110" />
+                                    className="rounded-xl border-b border-white dark:p-2 w-full h-[180px] bg-cover transition-transform duration-700 ease-in-out hover:scale-110" />
                             </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title md:text-2xl">{card.feature}</h2>

@@ -19,13 +19,13 @@ const TopRoomsCard = ({ room }) => {
 
     return (
         <div>
-            <div 
-            key={_id}
-            data-aos="fade-up"
-            className="card card-compact bg-base-100 border hover:shadow-xl">
+            <div
+                key={_id}
+                data-aos="fade-up"
+                className="card card-compact bg-base-100  dark:border-b hover:shadow-xl dark:bg-black dark:text-white">
                 <figure>
                     <img
-                        className="w-full bg-cover h-[200px] transition-transform duration-700 ease-in-out hover:scale-110"
+                        className="w-full bg-cover h-[200px] transition-transform duration-700 ease-in-out hover:scale-110 border-b"
                         src={image}
                         alt="rooms"
                     />
@@ -33,12 +33,21 @@ const TopRoomsCard = ({ room }) => {
                 <div className="card-body">
                     <h2 className="card-title text-2xl">{title}</h2>
                     <p>{description.slice(0, 90)}...</p>
-                    <p><b>Price:</b> {price}</p>
+                    <div className='flex justify-between'>
+                        <div>
+                            <p><b>Price:</b></p>
+                        </div>
+                        <div>
+                            <p><b>{price}</b></p>
+                        </div>
+                    </div>
 
                     {/* Rating */}
-                    <div className="flex items-center mt-2">
-                        <div className="flex  items-center">
+                    <div className="flex justify-between items-center mt-2">
+                        <div className="flex items-center">
                             <p className='pr-3'><b>Rating:</b></p>
+                        </div>
+                        <span className="ml-2 text-gray-700 flex items-center gap-1 dark:text-white">
                             {/* Display rating stars */}
                             {[1, 2, 3, 4, 5].map((star) => (
                                 <FaStar
@@ -47,8 +56,7 @@ const TopRoomsCard = ({ room }) => {
                                         }`}
                                 />
                             ))}
-                        </div>
-                        <span className="ml-2 text-gray-700">{averageRating} / 5</span>
+                            {averageRating} / 5</span>
                     </div>
 
                     {/* Features */}
@@ -63,9 +71,11 @@ const TopRoomsCard = ({ room }) => {
                             </p>
                         ))}
                     </div>
-                    <div className='flex gap-36'>
-                        <b>Room Status:</b>{" "}
-                        <div className={`badge ${room_state === "Available" ? "bg-green-500" : "bg-red-500"
+                    <div className='flex justify-between'>
+                        <div>
+                            <b>Room Status:</b>{" "}
+                        </div>
+                        <div className={`badge ${room_state === "Available" ? "bg-green-500 dark:text-white dark:text-opacity-80" : "bg-red-500 text-white dark:text-white dark:text-opacity-80"
                             }`}>{room_state}</div>
                     </div>
 
@@ -77,7 +87,7 @@ const TopRoomsCard = ({ room }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

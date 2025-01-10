@@ -18,7 +18,7 @@ const Services = props => {
     }, [])
 
     return (
-        <div className='py-10 bg-[#FAF5E8]'>
+        <div className='py-10 bg-[#FAF5E8] dark:bg-black dark:text-white'>
             <h3 className="text-lg font-semibold text-center mb-2">SERVICES</h3>
             <h2 className="text-4xl font-bold text-center">Bring You The Best Experience</h2>
 
@@ -27,9 +27,9 @@ const Services = props => {
                     services.map((data, idx) => <div
                         data-aos="fade-up"
                         key={idx}
-                        className="flex-row-reverse md:flex bg-base-100 rounded-lg shadow-xl p-5 ">
+                        className="flex-row-reverse md:flex bg-base-100 rounded-lg shadow-xl dark:bg-black p-5 ">
                         {/* Right Section */}
-                        <div className="flex-1 ">
+                        <div className="flex-1 dark:border dark:ml-1">
                             <img
                                 src={data.image}
                                 alt={data.title}
@@ -38,12 +38,12 @@ const Services = props => {
                         </div>
 
                         {/* Left Section */}
-                        <div className="flex-1">
-                            <h4 className="text-sm uppercase font-semibold text-gray-500">{data.category}</h4>
-                            <h2 className="text-2xl font-bold mt-2">{data.title}</h2>
-                            <p className="text-gray-600 my-4">{data.description}</p>
-                            <p className="font-medium text-gray-700">{data.timing}</p>
-                            <button className="btn btn-outline mt-4">{data.cta}</button>
+                        <div className="flex-1  dark:border dark:p-1">
+                            <h4 className="text-sm uppercase font-semibold text-gray-500 dark:text-white">{data.category}</h4>
+                            <h2 className="text-2xl font-bold mt-2 dark:text-white">{data.title}</h2>
+                            <p className="text-gray-600 my-4 dark:text-white">{data.description}</p>
+                            <p className="font-medium text-gray-700 dark:text-white">{data.timing}</p>
+                            <button className="btn btn-outline mt-4 dark:text-white">{data.cta}</button>
                         </div>
                     </div>)
                 }

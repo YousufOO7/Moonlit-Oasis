@@ -4,9 +4,9 @@ import footerLogo from '../../../public/image/navbar.jpg'
 
 const Footer = props => {
     return (
-        <footer className="footer mt-5 bg-[#FAF5E8] text-base-content p-10">
+        <footer className="footer dark:bg-black dark:text-white  mt-1 pt-4 bg-[#FAF5E8] text-base-content p-10">
             <nav>
-                <h6 className="footer-title">Services</h6>
+                <h6 className="footer-title dark:text-white">Services</h6>
                 <a className="link link-hover">Branding</a>
                 <a className="link link-hover">Design</a>
                 <a className="link link-hover">Marketing</a>

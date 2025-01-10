@@ -59,7 +59,7 @@ const Register = props => {
     }
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-[#FAF5E8] min-h-screen pt-20">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left md:w-[500px]">
                     <Lottie animationData={RegisterLottie}></Lottie>

@@ -2,9 +2,26 @@ import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
 import navLogo from '../../../public/image/navbar.jpg'
 import UseAuth from '../../Hooks/UseAuth';
+import { useEffect, useState } from 'react';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
 const Navbar = props => {
     const { user, Logout } = UseAuth();
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || ('light'));
+
+    useEffect(() => {
+        const rootElement = document.documentElement; // Correctly target <html>
+        if (theme === 'dark') {
+            rootElement.classList.add('dark');
+        } else {
+            rootElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
+    const themeToggle = () => {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+    };
 
     const Links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -15,7 +32,7 @@ const Navbar = props => {
     </>
 
     return (
-        <div className="navbar bg-[#FAF5E8] md:px-24 fixed z-10">
+        <div className="navbar bg-[#FAF5E8] md:px-24 fixed z-10 border-b border-pink-100 dark:bg-black dark:text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,6 +71,13 @@ const Navbar = props => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <button className='pr-4' onClick={themeToggle}>
+                    {theme === "light" ? (
+                        <MdDarkMode className="text-2xl text-gray-800 dark:text-gray-200" />
+                    ) : (
+                        <MdLightMode className="text-2xl text-gray-800 dark:text-gray-200" />
+                    )}
+                </button>
                 {
                     user && user?.email ? <div className='flex items-center gap-2'>
                         <p className='hidden md:block '>{user?.displayName}</p>
