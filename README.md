@@ -15,6 +15,30 @@
     <p>Make sure your file have env.local file</p> 
 </ul>
 
+# Dependencies 🌟
+
+- **[Firebase](https://firebase.google.com/)**  --Firebase is used for backend services, including authentication.
+
+
+
+
+- **[React](https://reactjs.org/)**  --React is a JavaScript library for building dynamic and reusable user interfaces.
+
+- **[React-DOM](https://reactjs.org/docs/react-dom.html)**  --Used for rendering React components into the Document Object Model (DOM) efficiently.
+
+
+- **[React-Awesome-Reveal](https://react-awesome-reveal.vercel.app/)**  --A library for adding scroll-based animations to components with ease and elegance.
+
+- **[React-Icons](https://react-icons.github.io/react-icons/)**  --A comprehensive collection of popular icons for seamless integration into React components.
+
+- **[React-Simple-Typewriter](https://www.npmjs.com/package/react-simple-typewriter)**  --A library for creating engaging typewriter animations to enhance user experience.
+
+- **[React-Toastify](https://fkhadra.github.io/react-toastify/)**  --Provides customizable and responsive toast notifications for improved user feedback.
+
+- **[Sort-By](https://www.npmjs.com/package/sort-by)**  --A utility for sorting arrays based on specified properties or fields.
+
+- **[SweetAlert2](https://sweetalert2.github.io/)**  --A modern and highly customizable library for creating attractive alert dialogs.
+
 <h3>Npm package:</h3>
 <ul>
 <li>Axios</li>
